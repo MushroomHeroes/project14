@@ -1,4 +1,4 @@
-const blockSize = 16;
+const blockSize = 32;
 
 function block(textureID, isWall)
 {

@@ -1,5 +1,5 @@
 //textures count yo
-const texCount = 6;
+const texCount = 6;//18
 
 // Background image
 var bgReady = false;
@@ -16,15 +16,16 @@ var heroImage = new Image();
 heroImage.onload = function () {
 	heroReady = true;
 };
-heroImage.src = "images/hero.png";
+heroImage.src = "images/man.png";
 
 //-------------------
 
 var textures = [];
-textures["floor"] = [];
+var textureType = "floor";
+textures[textureType] = [];
 for (var tex_i = 0; tex_i < texCount; tex_i++)
 {
-	textures["floor"][tex_i] = new texture("floor", tex_i);
+	textures[textureType][tex_i] = new texture(textureType, tex_i);
 }
 
 function texture(type, id)

@@ -2,7 +2,7 @@ var min_chunk_i = 0;
 var max_chunk_i = 0;
 var min_chunk_j = 0;
 var max_chunk_j = 0;
-const chunkSize = 8;
+const chunkSize = 2;
 
 function chunk(textureID) 
 {
