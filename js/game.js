@@ -1,8 +1,8 @@
 // Create the canvas
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
-canvas.width = 800;
-canvas.height = 600;
+canvas.width = 1600;
+canvas.height = 900;
 canvas.style.backgroundColor = "black";
 //canvas.style.verticalAlign = "middle";
 document.body.appendChild(canvas);
@@ -36,13 +36,13 @@ var main = function ()
 reset();
 var then = Date.now();
 
-addChunk(2, -5, Math.floor(Math.random()*texCount));
+/*addChunk(2, -5, Math.floor(Math.random()*texCount));
 addChunk(3, -4, Math.floor(Math.random()*texCount));
 addChunk(2, -3, Math.floor(Math.random()*texCount));
 addChunk(-1, 0, Math.floor(Math.random()*texCount));
 addChunk(-1, -1, Math.floor(Math.random()*texCount));
 addChunk(1, -1, Math.floor(Math.random()*texCount));
 addChunk(-2, -2, Math.floor(Math.random()*texCount));
-addChunk(-3, -1, Math.floor(Math.random()*texCount));
+addChunk(-3, -1, Math.floor(Math.random()*texCount));*/
 console.log(world);
 setInterval(main, 17); 
