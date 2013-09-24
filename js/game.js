@@ -36,16 +36,13 @@ var main = function ()
 reset();
 var then = Date.now();
 
-addChunk(2, -5, Math.floor((Math.random()*10)/2.5));
-addChunk(3, -4, Math.floor((Math.random()*10)/2.5));
-addChunk(2, -3, Math.floor((Math.random()*10)/2.5));
-
-addChunk(-1, 0, Math.floor((Math.random()*10)/2.5));
-addChunk(-1, -1, Math.floor((Math.random()*10)/2.5));
-
-addChunk(1, -1, Math.floor((Math.random()*10)/2.5));
-
-addChunk(-2, -2, Math.floor((Math.random()*10)/2.5));
-addChunk(-3, -1, Math.floor((Math.random()*10)/2.5));
+addChunk(2, -5, Math.floor(Math.random()*texCount));
+addChunk(3, -4, Math.floor(Math.random()*texCount));
+addChunk(2, -3, Math.floor(Math.random()*texCount));
+addChunk(-1, 0, Math.floor(Math.random()*texCount));
+addChunk(-1, -1, Math.floor(Math.random()*texCount));
+addChunk(1, -1, Math.floor(Math.random()*texCount));
+addChunk(-2, -2, Math.floor(Math.random()*texCount));
+addChunk(-3, -1, Math.floor(Math.random()*texCount));
 //console.log(world);
 setInterval(main, 30); 
