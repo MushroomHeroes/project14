@@ -45,4 +45,4 @@ addChunk(1, -1, Math.floor(Math.random()*texCount));
 addChunk(-2, -2, Math.floor(Math.random()*texCount));
 addChunk(-3, -1, Math.floor(Math.random()*texCount));
 //console.log(world);
-setInterval(main, 30); 
+setInterval(main, 25); 
