@@ -7,13 +7,16 @@ const chunkSize = 8;
 function chunk() 
 {
 	var textureID;
+	var rand;
 	this.blocks = [chunkSize];
     for (var i = 0; i < chunkSize; i++)
 	{
 		this.blocks[i] = [chunkSize];
 		for (var j = 0; j < chunkSize; j++)
 		{
-			textureID = Math.floor(Math.random()*texCount);
+			textureID = texCount - 1 - Math.floor(Math.log(Math.random()*Math.pow(2, texCount))/Math.log(2));
+			if (textureID > texCount - 1) 
+				textureID = texCount - 1;
 			this.blocks[i][j] = new block(textureID, false);
 		}
 	}
