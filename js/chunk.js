@@ -2,14 +2,16 @@ var min_chunk_i = 0;
 var max_chunk_i = 0;
 var min_chunk_j = 0;
 var max_chunk_j = 0;
-const chunkSize = 2;
+const chunkSize = 8;
 
 function chunk(textureID) 
 {
+	var textureID;
 	this.blocks = [chunkSize, chunkSize]
     for (var i = 0; i < chunkSize; i++)
 		for (var j = 0; j < chunkSize; j++)
 		{
+			textureID = Math.floor(Math.random()*texCount/1.5);
 			this.blocks[i, j] = new block(textureID, false);
 		}
 	

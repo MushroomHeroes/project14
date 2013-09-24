@@ -1,5 +1,5 @@
 //textures count yo
-const texCount = 6;//18
+const texCount = 8;//18
 
 // Background image
 var bgReady = false;
