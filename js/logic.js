@@ -3,6 +3,8 @@ var reset = function () {
 	hero.y = canvas.height / 2;
 };
 
+const preCacheLevel = 3;
+
 // Update game objects
 var update = function (modifier) 
 {
@@ -29,24 +31,12 @@ var update = function (modifier)
 	var chunk_i = Math.floor(x / blockSize / chunkSize);
 	var chunk_j = Math.floor(y / blockSize / chunkSize);
 	
-	if (typeof world[chunk_i] == 'undefined' || typeof world[chunk_i][chunk_j] == 'undefined')
-		addChunk(chunk_i, chunk_j, Math.floor(Math.random()*texCount));
-	if (typeof world[chunk_i][chunk_j + 1] == 'undefined')
-		addChunk(chunk_i, chunk_j + 1, Math.floor(Math.random()*texCount));
-	if (typeof world[chunk_i][chunk_j - 1] == 'undefined')
-		addChunk(chunk_i, chunk_j - 1, Math.floor(Math.random()*texCount));
-		
-	if (typeof world[chunk_i + 1] == 'undefined' || typeof world[chunk_i + 1][chunk_j] == 'undefined')
-		addChunk(chunk_i + 1, chunk_j, Math.floor(Math.random()*texCount));
-	if (typeof world[chunk_i + 1][chunk_j + 1] == 'undefined')
-		addChunk(chunk_i + 1, chunk_j + 1, Math.floor(Math.random()*texCount));
-	if (typeof world[chunk_i + 1][chunk_j - 1] == 'undefined')
-		addChunk(chunk_i + 1, chunk_j - 1, Math.floor(Math.random()*texCount));
-		
-	if (typeof world[chunk_i - 1] == 'undefined' || typeof world[chunk_i - 1][chunk_j] == 'undefined')
-		addChunk(chunk_i - 1, chunk_j, Math.floor(Math.random()*texCount));
-	if (typeof world[chunk_i - 1][chunk_j + 1] == 'undefined')
-		addChunk(chunk_i - 1, chunk_j + 1, Math.floor(Math.random()*texCount));
-	if (typeof world[chunk_i - 1][chunk_j - 1] == 'undefined')
-		addChunk(chunk_i - 1, chunk_j - 1, Math.floor(Math.random()*texCount));
+	for (var i = -preCacheLevel; i < preCacheLevel * 2 + 1; i++)
+	{
+		for (var j = -preCacheLevel; j < preCacheLevel * 2 + 1; j++)
+		{
+			if (typeof world[chunk_i + i] == 'undefined' || typeof world[chunk_i + i][chunk_j + j] == 'undefined')
+				addChunk(chunk_i + i, chunk_j + j, Math.floor(Math.random()*texCount));
+		}
+	}
 };
