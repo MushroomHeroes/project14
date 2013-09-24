@@ -1,3 +1,5 @@
+const blockSize = 16;
+
 function block(textureID, isWall)
 {
 	this.isWall = isWall;

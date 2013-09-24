@@ -16,8 +16,6 @@ var hero = {
 };
 
 // world
-const blockSize = 16;
-const chunkSize = 8;
 var world = [];
 
 
