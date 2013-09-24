@@ -3,6 +3,7 @@ var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
 canvas.width = 800;
 canvas.height = 600;
+//canvas.style.verticalAlign = "middle";
 document.body.appendChild(canvas);
 
 // Game objects
