@@ -90,11 +90,3 @@ var drawWorld = function()
 				}
 		}
 }
-
-
-
-
-
-
-
-
