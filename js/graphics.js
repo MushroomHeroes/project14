@@ -84,6 +84,9 @@ var drawWorld = function()
 				{				
 					x = chunk_i*chunkSize*blockSize + block_i*blockSize - hero.x + canvas.width;
 					y = chunk_j*chunkSize*blockSize + block_j*blockSize - hero.y + canvas.height;
+					if (x > canvas.width - 20 || x < 20 - blockSize ||
+						y > canvas.height - 20 || y < 20 - blockSize)
+						continue;
 					var currentBlock = world[chunk_i][chunk_j].blocks[block_i, block_j];
 					ctx.drawImage(textures[currentBlock.type][currentBlock.textureID].textureImage, x, y, blockSize, blockSize);
 				}
