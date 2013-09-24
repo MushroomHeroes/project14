@@ -1,4 +1,4 @@
-//textures count
+//textures count yo
 const texCount = 6;
 
 // Background image
