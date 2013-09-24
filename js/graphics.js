@@ -86,7 +86,7 @@ var drawWorld = function()
 					if (x > canvas.width || x < 0 - blockSize ||
 						y > canvas.height || y < 0 - blockSize)
 						continue;
-					var currentBlock = world[chunk_i][chunk_j].blocks[block_i, block_j];
+					var currentBlock = world[chunk_i][chunk_j].blocks[block_i][block_j];
 					ctx.drawImage(textures[currentBlock.type][currentBlock.textureID].textureImage, x, y, blockSize, blockSize);
 				}
 		}

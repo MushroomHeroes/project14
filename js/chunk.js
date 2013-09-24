@@ -4,16 +4,19 @@ var min_chunk_j = 0;
 var max_chunk_j = 0;
 const chunkSize = 8;
 
-function chunk(textureID) 
+function chunk() 
 {
 	var textureID;
-	this.blocks = [chunkSize, chunkSize]
+	this.blocks = [chunkSize];
     for (var i = 0; i < chunkSize; i++)
+	{
+		this.blocks[i] = [chunkSize];
 		for (var j = 0; j < chunkSize; j++)
 		{
-			textureID = Math.floor(Math.random()*texCount/1.5);
-			this.blocks[i, j] = new block(textureID, false);
+			textureID = Math.floor(Math.random()*texCount);
+			this.blocks[i][j] = new block(textureID, false);
 		}
+	}
 	
     /*this.getInfo = function() {
         return this.color + ' ' + this.type + ' apple';
