@@ -14,7 +14,7 @@ var hero = {
 	width: 64,
 };
 
-//world
+// world
 const blockSize = 16;
 const chunkSize = 8;
 var world = [];
@@ -32,36 +32,20 @@ var main = function ()
 	then = now;
 };
 
-var addChunk = function (i, j)
-{
-	if (i < min_chunk_i)
-		min_chunk_i = i;
-		
-	if (j < min_chunk_j)
-		min_chunk_j = j;
-		
-	if (i > max_chunk_i)
-		max_chunk_i = i;
-		
-	if (j > max_chunk_j)
-		max_chunk_j = j;
-		
-	if (typeof world[i] == 'undefined')
-		world[i] = [];
-	world[i][j] = new chunk();
-}
-
 // Let's play this game!
 reset();
 var then = Date.now();
 
-addChunk(2, -5);
-addChunk(3, -4);
-addChunk(2, -3);
+addChunk(2, -5, Math.floor((Math.random()*10)/2.5));
+addChunk(3, -4, Math.floor((Math.random()*10)/2.5));
+addChunk(2, -3, Math.floor((Math.random()*10)/2.5));
 
-addChunk(-1, 0);
-addChunk(-1, -1);
+addChunk(-1, 0, Math.floor((Math.random()*10)/2.5));
+addChunk(-1, -1, Math.floor((Math.random()*10)/2.5));
 
-addChunk(1, -1);
+addChunk(1, -1, Math.floor((Math.random()*10)/2.5));
+
+addChunk(-2, -2, Math.floor((Math.random()*10)/2.5));
+addChunk(-3, -1, Math.floor((Math.random()*10)/2.5));
 //console.log(world);
 setInterval(main, 30); 

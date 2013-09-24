@@ -1,6 +1,7 @@
-// Background image
-var iterator = 0;
+//textures count
+var texCount = 4;
 
+// Background image
 var bgReady = false;
 var bgImage = new Image();
 bgImage.onload = function () {
@@ -19,12 +20,26 @@ heroImage.src = "images/hero.png";
 
 //-------------------
 
-var textureReady = false;
-var textureImage = new Image();
-textureImage.onload = function () {
-	textureReady = true;
-};
-textureImage.src = "images/floor_texture_1.bmp";
+var textures = [];
+textures["floor"] = [];
+for (var tex_i = 0; tex_i < texCount; tex_i++)
+{
+	textures["floor"][tex_i] = new texture("floor", tex_i);
+}
+
+function texture(type, id)
+{
+	this.type = type;
+	this.id = id;
+	this.textureReady = false;
+	this.textureImage = new Image();
+	this.textureImage.onload = function ()
+	{
+		this.textureReady = true;
+	};	
+	this.textureImage.src = "images/textures/" + type + "_" + id + ".png"; 
+	//TODO: обработать иксэпшон если файл не найден
+}
 
 // Draw everything
 var render = function () 
@@ -37,9 +52,9 @@ var render = function ()
 		ctx.drawImage(bgImage, canvas.width/4 - hero.x/4, canvas.height/4 - hero.y/4);
 	}
 	
-	if (textureReady) {
+	//if (textureReady) {
 		drawWorld();
-	}
+	//}
 	
 	if (heroReady) {
 		ctx.drawImage(heroImage, canvas.width/2 - hero.width/2, canvas.height/2 - hero.height/2, hero.width, hero.height);
@@ -69,13 +84,8 @@ var drawWorld = function()
 				{				
 					x = chunk_i*chunkSize*blockSize + block_i*blockSize - hero.x + canvas.width;
 					y = chunk_j*chunkSize*blockSize + block_j*blockSize - hero.y + canvas.height;
-					
-					if (iterator < 1000)
-						console.log(x + " " + y);
-					
-					iterator++;
-					
-					ctx.drawImage(textureImage, x, y, blockSize, blockSize);
+					var currentBlock = world[chunk_i][chunk_j].blocks[block_i, block_j];
+					ctx.drawImage(textures[currentBlock.type][currentBlock.textureID].textureImage, x, y, blockSize, blockSize);
 				}
 		}
 }
