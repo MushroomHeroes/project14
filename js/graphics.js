@@ -44,9 +44,11 @@ function texture(type, id)
 // Draw everything
 var render = function () 
 {
-	ctx.rect(0, 0 ,canvas.width ,canvas.height);
+	ctx.clearRect(0, 0, canvas.width, canvas.height)
+	
+	/*ctx.rect(0 ,0 ,canvas.width, canvas.height);
 	ctx.fillStyle="black";
-	ctx.fill();
+	ctx.fill();*/
 
 	if (bgReady) {
 		ctx.drawImage(bgImage, canvas.width/4 - hero.x/4, canvas.height/4 - hero.y/4);
