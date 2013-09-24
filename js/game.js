@@ -1,8 +1,8 @@
 // Create the canvas
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
-canvas.width = 1600;
-canvas.height = 900;
+canvas.width = 1280;
+canvas.height = 800;
 canvas.style.backgroundColor = "black";
 //canvas.style.verticalAlign = "middle";
 document.body.appendChild(canvas);
