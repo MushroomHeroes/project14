@@ -30,19 +30,21 @@ var main = function ()
 	render();
 
 	then = now;
+	
+	//use to debug world
+	/*if (typeof console._commandLineAPI !== 'undefined') {
+		console.API = console._commandLineAPI;
+	} else if (typeof console._inspectorCommandLineAPI !== 'undefined') {
+		console.API = console._inspectorCommandLineAPI;
+	} else if (typeof console.clear !== 'undefined') {
+		console.API = console;
+	}
+	console.API.clear();
+	console.log(world);*/
 };
 
 // Let's play this game!
 reset();
 var then = Date.now();
 
-/*addChunk(2, -5, Math.floor(Math.random()*texCount));
-addChunk(3, -4, Math.floor(Math.random()*texCount));
-addChunk(2, -3, Math.floor(Math.random()*texCount));
-addChunk(-1, 0, Math.floor(Math.random()*texCount));
-addChunk(-1, -1, Math.floor(Math.random()*texCount));
-addChunk(1, -1, Math.floor(Math.random()*texCount));
-addChunk(-2, -2, Math.floor(Math.random()*texCount));
-addChunk(-3, -1, Math.floor(Math.random()*texCount));*/
-console.log(world);
 setInterval(main, 17); 
