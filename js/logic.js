@@ -15,15 +15,16 @@ var update = function (modifier)
 	var block_i;
 	var block_j;
 	
+	//TODO: move this to hero class
 	var curChunk_i1 = Math.floor(x / blockSize / chunkSize); //top left corner
-	var curChunk_i2 = Math.floor((x + hero.baseWidth) / blockSize / chunkSize); //top right corner
+	var curChunk_i2 = Math.floor((x + hero.baseWidth/2) / blockSize / chunkSize); //top right corner
 	var curChunk_j1 = Math.floor(y / blockSize / chunkSize); //bottom left corner
-	var curChunk_j2 = Math.floor((y + hero.baseHeight) / blockSize / chunkSize); //bottom right corner
+	var curChunk_j2 = Math.floor((y + hero.baseHeight/2) / blockSize / chunkSize); //bottom right corner
 	
 	var curBlock_i1 = Math.floor(x / blockSize) % chunkSize; //top left corner
-	var curBlock_i2 = Math.floor((x + hero.baseWidth) / blockSize) % chunkSize; //top right corner
+	var curBlock_i2 = Math.floor((x + hero.baseWidth/2) / blockSize) % chunkSize; //top right corner
 	var curBlock_j1 = Math.floor(y / blockSize) % chunkSize; //bottom left corner
-	var curBlock_j2 = Math.floor((y + hero.baseHeight) / blockSize) % chunkSize; //bottom right corner
+	var curBlock_j2 = Math.floor((y + hero.baseHeight/2) / blockSize) % chunkSize; //bottom right corner
 	
 	if (curBlock_i1 < 0)
 		curBlock_i1 = chunkSize + curBlock_i1;
