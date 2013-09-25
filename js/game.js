@@ -22,7 +22,7 @@ var hero = {
 	height: 32,
 	width: 32, 
 	baseHeight: 32, //if you change it collision will break
-	baseWidth: 32,
+	baseWidth: 20,
 	
 	curChunk_i1: 0,
 	curChunk_i2: 0,
