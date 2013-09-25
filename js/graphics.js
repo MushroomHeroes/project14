@@ -50,24 +50,9 @@ var render = function ()
 
 	//if (textureReady) {
 	drawWorld();
-	//}
-	
-
-	// debug text
-	ctx.fillStyle = "rgb(250, 250, 250)";
-	ctx.font = "14px Consolas";
-	ctx.textAlign = "left";
-	ctx.textBaseline = "top";
-	ctx.fillText(Math.round(hero.x - canvas.width/2) + " " + Math.round(hero.y - canvas.height/2), canvas.width/2 + hero.width/2, canvas.height/2 - hero.height/2);
-	
-	/*ctx.beginPath();
-	ctx.lineWidth="4";
-	ctx.strokeStyle="red";
-	ctx.rect(hero.x + blockSize - hero.speed * modifier_temp, hero.y, blockSize, blockSize);
-	ctx.fill();*/
+	//}	
 	
 	//debug collissions
-
 	var x_rect = hero.curChunk_i1*chunkSize*blockSize + hero.curBlock_i1*blockSize - hero.x + canvas.width;
 	var y_rect = hero.curChunk_j1*chunkSize*blockSize + hero.curBlock_j1*blockSize - hero.y + canvas.height;	
 	
@@ -103,6 +88,14 @@ var render = function ()
 	{
 		ctx.drawImage(heroImage, canvas.width/2 - hero.width/2, canvas.height/2 - hero.height/2, hero.width, hero.height);
 	}
+	
+	
+	// debug text
+	ctx.fillStyle = "rgb(250, 250, 250)";
+	ctx.font = "14px Consolas";
+	ctx.textAlign = "left";
+	ctx.textBaseline = "top";
+	ctx.fillText(Math.round(hero.x - canvas.width/2) + " " + Math.round(hero.y - canvas.height/2), canvas.width/2 + hero.width/2, canvas.height/2 - hero.height/2);
 };
 
 var drawWorld = function()
