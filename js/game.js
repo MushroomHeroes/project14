@@ -9,6 +9,9 @@ document.body.appendChild(canvas);
 
 const heroSize = blockSize*2;//64
 
+
+var gameComponents = [];
+
 // Game objects
 var hero = {
 	speed: 256, // movement in pixels per second
@@ -60,7 +63,10 @@ var main = function ()
 };
 
 // Let's play this game!
+gameComponents.push(new Chat());
+
 reset();
 var then = Date.now();
 
 setInterval(main, 17); 
+

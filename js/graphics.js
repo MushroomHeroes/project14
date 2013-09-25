@@ -88,6 +88,11 @@ var render = function ()
 	{
 		ctx.drawImage(heroImage, canvas.width/2 - hero.width/2, canvas.height/2 - hero.height/2, hero.width, hero.height);
 	}
+
+	//render gamecomponents
+	gameComponents.forEach(function(gc) {
+		gc.render(ctx);
+	});
 	
 	
 	// debug text
