@@ -47,18 +47,11 @@ function texture(type, id)
 var render = function () 
 {
 	ctx.clearRect(0, 0, canvas.width, canvas.height)
-	
-	if (bgReady) {
-		ctx.drawImage(bgImage, canvas.width/4 - hero.x/4, canvas.height/4 - hero.y/4);
-	}
-	
+
 	//if (textureReady) {
-		drawWorld();
+	drawWorld();
 	//}
 	
-	if (heroReady) {
-		ctx.drawImage(heroImage, canvas.width/2 - hero.width/2, canvas.height/2 - hero.height/2, hero.width, hero.height);
-	}
 
 	// debug text
 	ctx.fillStyle = "rgb(250, 250, 250)";
@@ -72,6 +65,65 @@ var render = function ()
 	ctx.strokeStyle="red";
 	ctx.rect(hero.x + blockSize - hero.speed * modifier_temp, hero.y, blockSize, blockSize);
 	ctx.fill();*/
+	
+	//debug collissions
+	var x = hero.x - canvas.width/2;
+	var y = hero.y - canvas.height/2;
+	
+	var curChunk_i1 = Math.floor(x - hero.baseWidth / blockSize / chunkSize); //top left corner
+	var curChunk_i2 = Math.floor((x) / blockSize / chunkSize); //top right corner
+	var curChunk_j1 = Math.floor(y / blockSize / chunkSize); //bottom left corner
+	var curChunk_j2 = Math.floor((y + hero.baseHeight) / blockSize / chunkSize); //bottom right corner
+	
+	var curBlock_i1 = Math.floor(x  - hero.baseWidth / blockSize) % chunkSize; //top left corner
+	var curBlock_i2 = Math.floor((x) / blockSize) % chunkSize; //top right corner
+	var curBlock_j1 = Math.floor(y / blockSize) % chunkSize; //bottom left corner
+	var curBlock_j2 = Math.floor((y + hero.baseHeight) / blockSize) % chunkSize; //bottom right corner
+	
+	if (curBlock_i1 < 0)
+		curBlock_i1 = chunkSize + curBlock_i1;
+	if (curBlock_i2 < 0)
+		curBlock_i2 = chunkSize + curBlock_i2;
+	if (curBlock_j1 < 0)
+		curBlock_j1 = chunkSize + curBlock_j1;
+	if (curBlock_j2 < 0)
+		curBlock_j2 = chunkSize + curBlock_j2;
+		
+	var x_rect = curChunk_i1*chunkSize*blockSize + curBlock_i1*blockSize - hero.x + canvas.width;
+	var y_rect = curChunk_j1*chunkSize*blockSize + curBlock_j1*blockSize - hero.y + canvas.height;	
+	
+	ctx.beginPath();
+	ctx.fillStyle="red";
+	ctx.rect(x_rect, y_rect, blockSize, blockSize);
+	ctx.fill();
+	
+	x_rect = curChunk_i1*chunkSize*blockSize + curBlock_i1*blockSize - hero.x + canvas.width;
+	y_rect = curChunk_j2*chunkSize*blockSize + curBlock_j2*blockSize - hero.y + canvas.height;	
+	
+	ctx.beginPath();
+	ctx.rect(x_rect, y_rect, blockSize, blockSize);
+	ctx.fill();
+	
+	x_rect = curChunk_i2*chunkSize*blockSize + curBlock_i2*blockSize - hero.x + canvas.width;
+	y_rect = curChunk_j1*chunkSize*blockSize + curBlock_j1*blockSize - hero.y + canvas.height;		
+	
+	ctx.beginPath();
+	ctx.rect(x_rect, y_rect, blockSize, blockSize);
+	ctx.fill();
+	
+	x_rect = curChunk_i2*chunkSize*blockSize + curBlock_i2*blockSize - hero.x + canvas.width;
+	y_rect = curChunk_j2*chunkSize*blockSize + curBlock_j2*blockSize - hero.y + canvas.height;		
+	
+	//console.log(x + " " + y);
+	
+	ctx.beginPath();
+	ctx.rect(x_rect, y_rect, blockSize, blockSize);
+	ctx.fill();
+	
+	if (heroReady) 
+	{
+		ctx.drawImage(heroImage, canvas.width/2 - hero.width/2, canvas.height/2 - hero.height/2, hero.width, hero.height);
+	}
 };
 
 var drawWorld = function()
