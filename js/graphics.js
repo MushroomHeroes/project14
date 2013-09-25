@@ -52,50 +52,12 @@ var render = function ()
 	drawWorld();
 	//}	
 	
-	//debug collissions
-	var x_rect = hero.curChunk_i1*chunkSize*blockSize + hero.curBlock_i1*blockSize - hero.x + canvas.width;
-	var y_rect = hero.curChunk_j1*chunkSize*blockSize + hero.curBlock_j1*blockSize - hero.y + canvas.height;	
-	
-	ctx.beginPath();
-	ctx.fillStyle="red";
-	ctx.rect(x_rect, y_rect, blockSize, blockSize);
-	ctx.fill();
-	
-	x_rect = hero.curChunk_i1*chunkSize*blockSize + hero.curBlock_i1*blockSize - hero.x + canvas.width;
-	y_rect = hero.curChunk_j2*chunkSize*blockSize + hero.curBlock_j2*blockSize - hero.y + canvas.height;	
-	
-	ctx.beginPath();
-	ctx.rect(x_rect, y_rect, blockSize, blockSize);
-	ctx.fill();
-	
-	x_rect = hero.curChunk_i2*chunkSize*blockSize + hero.curBlock_i2*blockSize - hero.x + canvas.width;
-	y_rect = hero.curChunk_j1*chunkSize*blockSize + hero.curBlock_j1*blockSize - hero.y + canvas.height;		
-	
-	ctx.beginPath();
-	ctx.rect(x_rect, y_rect, blockSize, blockSize);
-	ctx.fill();
-	
-	x_rect = hero.curChunk_i2*chunkSize*blockSize + hero.curBlock_i2*blockSize - hero.x + canvas.width;
-	y_rect = hero.curChunk_j2*chunkSize*blockSize + hero.curBlock_j2*blockSize - hero.y + canvas.height;		
-	
-	//console.log(x + " " + y);
-	
-	ctx.beginPath();
-	ctx.rect(x_rect, y_rect, blockSize, blockSize);
-	ctx.fill();
+	drawDebugInfo();	
 	
 	if (heroReady) 
 	{
 		ctx.drawImage(heroImage, canvas.width/2 - hero.width/2, canvas.height/2 - hero.height/2, hero.width, hero.height);
 	}
-	
-	
-	// debug text
-	ctx.fillStyle = "rgb(250, 250, 250)";
-	ctx.font = "14px Consolas";
-	ctx.textAlign = "left";
-	ctx.textBaseline = "top";
-	ctx.fillText(Math.round(hero.x - canvas.width/2) + " " + Math.round(hero.y - canvas.height/2), canvas.width/2 + hero.width/2, canvas.height/2 - hero.height/2);
 };
 
 var drawWorld = function()
@@ -121,4 +83,43 @@ var drawWorld = function()
 					ctx.drawImage(textures[currentBlock.type][currentBlock.textureID].textureImage, x, y, blockSize, blockSize);
 				}
 		}
+}
+
+var drawDebugInfo = function()
+{
+	var x_rect = hero.curChunk_i1*chunkSize*blockSize + hero.curBlock_i1*blockSize - hero.x + canvas.width;
+	var y_rect = hero.curChunk_j1*chunkSize*blockSize + hero.curBlock_j1*blockSize - hero.y + canvas.height;
+	
+	ctx.beginPath();
+	ctx.fillStyle="red";
+	ctx.rect(x_rect, y_rect, blockSize, blockSize);
+	ctx.fill();
+	
+	x_rect = hero.curChunk_i1*chunkSize*blockSize + hero.curBlock_i1*blockSize - hero.x + canvas.width;
+	y_rect = hero.curChunk_j2*chunkSize*blockSize + hero.curBlock_j2*blockSize - hero.y + canvas.height;	
+	
+	ctx.beginPath();
+	ctx.rect(x_rect, y_rect, blockSize, blockSize);
+	ctx.fill();
+	
+	x_rect = hero.curChunk_i2*chunkSize*blockSize + hero.curBlock_i2*blockSize - hero.x + canvas.width;
+	y_rect = hero.curChunk_j1*chunkSize*blockSize + hero.curBlock_j1*blockSize - hero.y + canvas.height;		
+	
+	ctx.beginPath();
+	ctx.rect(x_rect, y_rect, blockSize, blockSize);
+	ctx.fill();
+	
+	x_rect = hero.curChunk_i2*chunkSize*blockSize + hero.curBlock_i2*blockSize - hero.x + canvas.width;
+	y_rect = hero.curChunk_j2*chunkSize*blockSize + hero.curBlock_j2*blockSize - hero.y + canvas.height;		
+	
+	ctx.beginPath();
+	ctx.rect(x_rect, y_rect, blockSize, blockSize);
+	ctx.fill();
+	
+	// debug text
+	ctx.fillStyle = "rgb(250, 250, 250)";
+	ctx.font = "14px Consolas";
+	ctx.textAlign = "left";
+	ctx.textBaseline = "top";
+	ctx.fillText(Math.round(hero.x - canvas.width/2) + " " + Math.round(hero.y - canvas.height/2), canvas.width/2 + hero.width/2, canvas.height/2 - hero.height/2);
 }

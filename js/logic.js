@@ -9,8 +9,7 @@ var recountHeroCurPos = function()
 {
 	hero.abs_x = hero.x - canvas.width/2;
 	hero.abs_y = hero.y - canvas.height/2;
-	
-	//TODO: move this to hero class
+
 	hero.curChunk_i1 = Math.floor((hero.abs_x) / blockSize / chunkSize); //top left corner
 	hero.curChunk_i2 = Math.floor((hero.abs_x + hero.baseWidth) / blockSize / chunkSize); //top right corner
 	hero.curChunk_j1 = Math.floor((hero.abs_y) / blockSize / chunkSize); //bottom left corner
