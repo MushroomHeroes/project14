@@ -12,8 +12,8 @@ var hero = {
 	speed: 256, // movement in pixels per second
 	x: 0,
 	y: 0,
-	height: 32,
-	width: 32,
+	height: blockSize,
+	width: blockSize,
 };
 
 // world
