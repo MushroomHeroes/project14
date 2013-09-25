@@ -14,10 +14,22 @@ var hero = {
 	speed: 256, // movement in pixels per second
 	x: 0,
 	y: 0,
+	abs_x: 0,
+	abs_y: 0,
 	height: 32,
 	width: 32, 
 	baseHeight: 32, //if you change it collision will break
-	baseWidth: 32
+	baseWidth: 32,
+	
+	curChunk_i1: 0,
+	curChunk_i2: 0,
+	curChunk_j1: 0,
+	curChunk_j2: 0,	
+	
+	curBlock_i1: 0,
+	curBlock_j2: 0,
+	curBlock_i1: 0,
+	curBlock_j2: 0
 };
 
 // world

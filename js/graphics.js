@@ -67,52 +67,31 @@ var render = function ()
 	ctx.fill();*/
 	
 	//debug collissions
-	var x = hero.x - canvas.width/2;
-	var y = hero.y - canvas.height/2;
-	
-	var curChunk_i1 = Math.floor(x - hero.baseWidth / blockSize / chunkSize); //top left corner
-	var curChunk_i2 = Math.floor((x) / blockSize / chunkSize); //top right corner
-	var curChunk_j1 = Math.floor(y / blockSize / chunkSize); //bottom left corner
-	var curChunk_j2 = Math.floor((y + hero.baseHeight) / blockSize / chunkSize); //bottom right corner
-	
-	var curBlock_i1 = Math.floor(x  - hero.baseWidth / blockSize) % chunkSize; //top left corner
-	var curBlock_i2 = Math.floor((x) / blockSize) % chunkSize; //top right corner
-	var curBlock_j1 = Math.floor(y / blockSize) % chunkSize; //bottom left corner
-	var curBlock_j2 = Math.floor((y + hero.baseHeight) / blockSize) % chunkSize; //bottom right corner
-	
-	if (curBlock_i1 < 0)
-		curBlock_i1 = chunkSize + curBlock_i1;
-	if (curBlock_i2 < 0)
-		curBlock_i2 = chunkSize + curBlock_i2;
-	if (curBlock_j1 < 0)
-		curBlock_j1 = chunkSize + curBlock_j1;
-	if (curBlock_j2 < 0)
-		curBlock_j2 = chunkSize + curBlock_j2;
-		
-	var x_rect = curChunk_i1*chunkSize*blockSize + curBlock_i1*blockSize - hero.x + canvas.width;
-	var y_rect = curChunk_j1*chunkSize*blockSize + curBlock_j1*blockSize - hero.y + canvas.height;	
+
+	var x_rect = hero.curChunk_i1*hero.chunkSize*blockSize + hero.curBlock_i1*blockSize - hero.x + canvas.width;
+	var y_rect = hero.curChunk_j1*hero.chunkSize*blockSize + hero.curBlock_j1*blockSize - hero.y + canvas.height;	
 	
 	ctx.beginPath();
 	ctx.fillStyle="red";
 	ctx.rect(x_rect, y_rect, blockSize, blockSize);
 	ctx.fill();
 	
-	x_rect = curChunk_i1*chunkSize*blockSize + curBlock_i1*blockSize - hero.x + canvas.width;
-	y_rect = curChunk_j2*chunkSize*blockSize + curBlock_j2*blockSize - hero.y + canvas.height;	
+	x_rect = hero.curChunk_i1*hero.chunkSize*blockSize + hero.curBlock_i1*blockSize - hero.x + canvas.width;
+	y_rect = hero.curChunk_j2*hero.chunkSize*blockSize + hero.curBlock_j2*blockSize - hero.y + canvas.height;	
 	
 	ctx.beginPath();
 	ctx.rect(x_rect, y_rect, blockSize, blockSize);
 	ctx.fill();
 	
-	x_rect = curChunk_i2*chunkSize*blockSize + curBlock_i2*blockSize - hero.x + canvas.width;
-	y_rect = curChunk_j1*chunkSize*blockSize + curBlock_j1*blockSize - hero.y + canvas.height;		
+	x_rect = hero.curChunk_i2*hero.chunkSize*blockSize + hero.curBlock_i2*blockSize - hero.x + canvas.width;
+	y_rect = hero.curChunk_j1*hero.chunkSize*blockSize + hero.curBlock_j1*blockSize - hero.y + canvas.height;		
 	
 	ctx.beginPath();
 	ctx.rect(x_rect, y_rect, blockSize, blockSize);
 	ctx.fill();
 	
-	x_rect = curChunk_i2*chunkSize*blockSize + curBlock_i2*blockSize - hero.x + canvas.width;
-	y_rect = curChunk_j2*chunkSize*blockSize + curBlock_j2*blockSize - hero.y + canvas.height;		
+	x_rect = hero.curChunk_i2*hero.chunkSize*blockSize + hero.curBlock_i2*blockSize - hero.x + canvas.width;
+	y_rect = hero.curChunk_j2*hero.chunkSize*blockSize + hero.curBlock_j2*blockSize - hero.y + canvas.height;		
 	
 	//console.log(x + " " + y);
 	
