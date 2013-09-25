@@ -68,30 +68,30 @@ var render = function ()
 	
 	//debug collissions
 
-	var x_rect = hero.curChunk_i1*hero.chunkSize*blockSize + hero.curBlock_i1*blockSize - hero.x + canvas.width;
-	var y_rect = hero.curChunk_j1*hero.chunkSize*blockSize + hero.curBlock_j1*blockSize - hero.y + canvas.height;	
+	var x_rect = hero.curChunk_i1*chunkSize*blockSize + hero.curBlock_i1*blockSize - hero.x + canvas.width;
+	var y_rect = hero.curChunk_j1*chunkSize*blockSize + hero.curBlock_j1*blockSize - hero.y + canvas.height;	
 	
 	ctx.beginPath();
 	ctx.fillStyle="red";
 	ctx.rect(x_rect, y_rect, blockSize, blockSize);
 	ctx.fill();
 	
-	x_rect = hero.curChunk_i1*hero.chunkSize*blockSize + hero.curBlock_i1*blockSize - hero.x + canvas.width;
-	y_rect = hero.curChunk_j2*hero.chunkSize*blockSize + hero.curBlock_j2*blockSize - hero.y + canvas.height;	
+	x_rect = hero.curChunk_i1*chunkSize*blockSize + hero.curBlock_i1*blockSize - hero.x + canvas.width;
+	y_rect = hero.curChunk_j2*chunkSize*blockSize + hero.curBlock_j2*blockSize - hero.y + canvas.height;	
 	
 	ctx.beginPath();
 	ctx.rect(x_rect, y_rect, blockSize, blockSize);
 	ctx.fill();
 	
-	x_rect = hero.curChunk_i2*hero.chunkSize*blockSize + hero.curBlock_i2*blockSize - hero.x + canvas.width;
-	y_rect = hero.curChunk_j1*hero.chunkSize*blockSize + hero.curBlock_j1*blockSize - hero.y + canvas.height;		
+	x_rect = hero.curChunk_i2*chunkSize*blockSize + hero.curBlock_i2*blockSize - hero.x + canvas.width;
+	y_rect = hero.curChunk_j1*chunkSize*blockSize + hero.curBlock_j1*blockSize - hero.y + canvas.height;		
 	
 	ctx.beginPath();
 	ctx.rect(x_rect, y_rect, blockSize, blockSize);
 	ctx.fill();
 	
-	x_rect = hero.curChunk_i2*hero.chunkSize*blockSize + hero.curBlock_i2*blockSize - hero.x + canvas.width;
-	y_rect = hero.curChunk_j2*hero.chunkSize*blockSize + hero.curBlock_j2*blockSize - hero.y + canvas.height;		
+	x_rect = hero.curChunk_i2*chunkSize*blockSize + hero.curBlock_i2*blockSize - hero.x + canvas.width;
+	y_rect = hero.curChunk_j2*chunkSize*blockSize + hero.curBlock_j2*blockSize - hero.y + canvas.height;		
 	
 	//console.log(x + " " + y);
 	
