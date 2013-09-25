@@ -16,7 +16,7 @@ var heroImage = new Image();
 heroImage.onload = function () {
 	heroReady = true;
 };
-heroImage.src = "images/man.png";
+heroImage.src = "images/man32.png";
 
 //-------------------
 
