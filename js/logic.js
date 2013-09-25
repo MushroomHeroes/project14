@@ -35,7 +35,7 @@ var update = function (modifier)
 {
 	recountHeroCurPos();
 
-	//render gamecomponents
+	//update gamecomponents
 	gameComponents.forEach(function(gc) {
 		gc.update();
 	});
