@@ -1,6 +1,7 @@
 //textures count yo
 const texCount = 8;//18
 
+
 // Background image
 var bgReady = false;
 var bgImage = new Image();
@@ -16,7 +17,7 @@ var heroImage = new Image();
 heroImage.onload = function () {
 	heroReady = true;
 };
-heroImage.src = "images/man.png";
+heroImage.src = "images/man64.png";
 
 //-------------------
 
