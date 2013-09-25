@@ -1,6 +1,7 @@
 //textures count yo
 const texCount = 8;//18
 
+
 // Background image
 var bgReady = false;
 var bgImage = new Image();

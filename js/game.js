@@ -7,13 +7,15 @@ canvas.style.backgroundColor = "black";
 //canvas.style.verticalAlign = "middle";
 document.body.appendChild(canvas);
 
+const heroSize = blockSize*2;//64
+
 // Game objects
 var hero = {
 	speed: 256, // movement in pixels per second
 	x: 0,
 	y: 0,
-	height: blockSize,
-	width: blockSize,
+	height: heroSize,
+	width: heroSize,
 };
 
 // world
