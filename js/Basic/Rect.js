@@ -1,7 +1,8 @@
+/* This class used to manage rect information */
 function Rect(params) {
 	var self = this;
 
-	//properties
+	/* PROPERTIES */
 	self.x = 0;
 	self.y = 0;
 
@@ -18,19 +19,16 @@ function Rect(params) {
 			that.height = params.height;
 		}
 	}(this)
-
-	//methods
-
-	Rect.prototype.asArray = function () {
-		return [self.x, self.y, self.width, self.height];
-	};
-
-	Rect.prototype.add = function (rect) {
-		return new Rect({
-			x: self.x + rect.x,
-			y: self.y + rect.y,
-			width: self.width + rect.width,
-			height: self.height + rect.height,
-		});
-	};
 }
+
+/* METHODS */
+Rect.prototype.asArray = function () {
+	return [this.x, this.y, this.width, this.height];
+};
+
+Rect.prototype.move = function (x, y) {
+	return new Rect({
+		x: this.x + x,
+		y: this.y + y,
+	});
+};

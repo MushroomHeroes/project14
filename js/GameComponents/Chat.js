@@ -6,14 +6,14 @@ function Chat(params) {
 	self.isLocked = false;
 
 	self.rect = new Rect();
-	
+
 	//constructor
 	__construct = function () {
-		const chatHeight = 50;
-		const chatWidth = 300;
-		const padLeft = 10;
-		const padBottom = 10;
-				
+		var chatHeight = 50;
+		var chatWidth = 300;
+		var padLeft = 10;
+		var padBottom = 10;
+
 		self.rect = new Rect({
 			x: padLeft,
 			y: canvas.height - padBottom - chatHeight,
@@ -46,7 +46,7 @@ function Chat(params) {
 	};
 
 	self.render = function (ctx) {
-		
+
 		if (self.isOpen) {
 			/* chat is open */
 
@@ -59,17 +59,16 @@ function Chat(params) {
 				style: baseTextStyle,
 				fillStyle: "rgb(250, 250, 250)",
 				text: "Chat here",
-				pos: self.rect
+				pos: self.rect.move(5, 5)
 			});
 			//draw messages
-		}else{
+		} else {
 			/* chat closed */
-
 			drawText(ctx, {
 				style: baseTextStyle,
-				fillStyle: "rgb(250, 250, 250)",
+				fillStyle: "rgba(0, 0, 0, 0.8)",
 				text: "< Press Enter to Open Chat >",
-				pos: self.rect
+				pos: self.rect.move(0, 35)
 			});
 		}
 
