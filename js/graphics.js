@@ -65,6 +65,12 @@ var render = function ()
 	ctx.textAlign = "left";
 	ctx.textBaseline = "top";
 	ctx.fillText(Math.round(hero.x - canvas.width/2) + " " + Math.round(hero.y - canvas.height/2), canvas.width/2 + hero.width/2, canvas.height/2 - hero.height/2);
+	
+	/*ctx.beginPath();
+	ctx.lineWidth="4";
+	ctx.strokeStyle="red";
+	ctx.rect(hero.x + blockSize - hero.speed * modifier_temp, hero.y, blockSize, blockSize);
+	ctx.fill();*/
 };
 
 var drawWorld = function()

@@ -8,6 +8,7 @@ function chunk()
 {
 	var textureID;
 	var rand;
+	var isWall = false;
 	this.blocks = [chunkSize];
     for (var i = 0; i < chunkSize; i++)
 	{
@@ -16,8 +17,13 @@ function chunk()
 		{
 			textureID = texCount - 1 - Math.floor(Math.log(Math.random()*Math.pow(2, texCount))/Math.log(2));
 			if (textureID > texCount - 1) 
-				textureID = texCount - 1;
-			this.blocks[i][j] = new block(textureID, false);
+				textureID = texCount - 2;
+			if (textureID == 6 ||textureID == 7)
+				isWall = true;
+			else
+				isWall = false;
+				
+			this.blocks[i][j] = new block(textureID, isWall);
 		}
 	}
 	

@@ -14,6 +14,8 @@ var hero = {
 	y: 0,
 	height: 32,
 	width: 32,
+	baseHeight: 32, //if you change it collision will break
+	baseWidth: 32
 };
 
 // world
