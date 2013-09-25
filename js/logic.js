@@ -41,7 +41,7 @@ var update = function (modifier)
 	var block_i;
 	var block_j;
 	
-	if (38 in keysDown) 
+	if (38 in keysDown || 87 in keysDown) 
 	{ // Player holding up
 		chunk_j = Math.floor((hero.abs_y - hero.baseHeight) / blockSize / chunkSize);
 		block_j = Math.floor((hero.abs_y - hero.baseHeight) / blockSize) % chunkSize;
@@ -66,7 +66,7 @@ var update = function (modifier)
 			hero.y = Math.max(possiblePosY1, possiblePosY2);
 		}
 	}
-	if (40 in keysDown) 
+	if (40 in keysDown || 83 in keysDown) 
 	{ // Player holding down
 		chunk_j = Math.floor((hero.abs_y + hero.baseHeight) / blockSize / chunkSize);
 		block_j = Math.floor((hero.abs_y + hero.baseHeight) / blockSize) % chunkSize;
@@ -91,7 +91,7 @@ var update = function (modifier)
 			hero.y = Math.min(possiblePosY1, possiblePosY2);
 		}
 	}
-	if (37 in keysDown) 
+	if (37 in keysDown || 65 in keysDown) 
 	{ // Player holding left
 		chunk_i = Math.floor((hero.abs_x - blockSize) / blockSize / chunkSize);
 		block_i = Math.floor((hero.abs_x - blockSize) / blockSize) % chunkSize;
@@ -110,7 +110,7 @@ var update = function (modifier)
 			hero.x = Math.max(possiblePosX1, possiblePosX2);
 		}
 	}
-	if (39 in keysDown) 
+	if (39 in keysDown || 68 in keysDown) 
 	{ // Player holding right
 		chunk_i = Math.floor((hero.abs_x + hero.baseWidth) / blockSize / chunkSize);
 		block_i = Math.floor((hero.abs_x + hero.baseWidth) / blockSize) % chunkSize;
