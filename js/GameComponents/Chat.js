@@ -1,7 +1,8 @@
+/* CHAT WINDOW GAMECOMPONENT */
 function Chat(params) {
 	var self = this;
 
-	//properties
+	/* PROPERTIES */
 	self.isOpen = false;
 	self.isLocked = false;
 
@@ -23,8 +24,26 @@ function Chat(params) {
 
 	}()
 
-	//methods
+	/* PRIVATE STUFF */
 
+	var baseTextStyle = {
+		font: "14px Consolas",
+		textAlign: "left",
+		textBaseline: "top",
+	};
+
+	var drawText = function (ctx, params) {
+		ctx.font = params.style.font;
+		ctx.textAlign = params.style.textAlign;
+		ctx.textBaseline = params.style.textBaseline;
+
+		ctx.fillStyle = params.fillStyle;
+		ctx.fillText(params.text, params.pos.x, params.pos.y);
+	};
+
+
+
+	/* UPDATE */
 	self.update = function (modifier) {
 
 		if (13 in keysUp && keysUp[13]) {
@@ -39,12 +58,7 @@ function Chat(params) {
 		}
 	};
 
-	var baseTextStyle = {
-		font: "14px Consolas",
-		textAlign: "left",
-		textBaseline: "top",
-	};
-
+	/* RENDER */
 	self.render = function (ctx) {
 
 		if (self.isOpen) {
@@ -75,12 +89,5 @@ function Chat(params) {
 	};
 
 
-	var drawText = function (ctx, params) {
-		ctx.font = params.style.font;
-		ctx.textAlign = params.style.textAlign;
-		ctx.textBaseline = params.style.textBaseline;
 
-		ctx.fillStyle = params.fillStyle;
-		ctx.fillText(params.text, params.pos.x, params.pos.y);
-	};
 }
