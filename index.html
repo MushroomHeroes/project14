@@ -1,17 +1,24 @@
-<html>
+<html
 <head></head>
 <body align="center">
-	<script src="js/Basic/Vector2.js"></script>
-	<script src="js/Basic/Rect.js"></script>
+	<script src="Src/Basic/Vector2.js"></script>
+	<script src="Src/Basic/Rect.js"></script>
 	
+	<script src="Src/GameComponents/Chat.js"></script>
 
-	<script src="js/GameComponents/Chat.js"></script>
+	<!--refactor this class-->
+	<script src="Src/input.js"></script>
 
-	<script src="js/chunk.js"></script>
-	<script src="js/block.js"></script>
-	<script src="js/input.js"></script>
-	<script src="js/logic.js"></script>
-	<script src="js/graphics.js"></script>
-	<script src="js/game.js"></script>
+
+<script type="text/javascript" src="Libs/jquery-2.0.3.js"></script>
+<script src="Src/BaseEngine.js" type="text/javascript"></script>
+<script src="Src/Game.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	$(function () {
+		new Game();
+	});
+</script>
+
 </body>
 </html>

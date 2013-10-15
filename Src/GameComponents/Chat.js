@@ -17,7 +17,7 @@ function Chat(params) {
 
 		self.rect = new Rect({
 			x: padLeft,
-			y: canvas.height - padBottom - chatHeight,
+			y: params.game.Height - padBottom - chatHeight,
 			width: chatWidth,
 			height: chatHeight
 		});
@@ -44,7 +44,7 @@ function Chat(params) {
 
 
 	/* UPDATE */
-	self.update = function (modifier) {
+	self.Update = function (modifier) {
 
 		if (13 in keysUp && keysUp[13]) {
 			self.isLocked = false;
@@ -59,7 +59,7 @@ function Chat(params) {
 	};
 
 	/* RENDER */
-	self.render = function (ctx) {
+	self.Render = function (ctx) {
 
 		if (self.isOpen) {
 			/* chat is open */
